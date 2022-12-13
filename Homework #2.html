@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<!--Name: Justin Frandsen
+	Course: 235.02
+	Homework: #2
+	Git-Hub: https://github.com/frustin642/Yahtzee
+-->
+
+<head>
+<title>Yahtzee</title>
+<style type="text/css">
+<!--
+h1 {text-align:center;}
+div.a {text-align:center;margin-bottom:4em;}
+table.a {margin-left:auto;margin-right:auto;}
+td.a {text-align:right;
+	  font-family: Helvetica;
+	  font-weight: bold;
+}
+td.b {background-color:#AEAFFF;
+	  width:2.5em;
+	  height:2em;
+	  border: 3px groove #AEAFB4;
+}	 
+button {padding: 10px;
+		margin-left: 20px;}
+button.a {background-color:#A020F0;
+		font-weight: bold;
+		color: white;
+}
+-->
+</style>
+</head>
+
+<body>
+<h1>Yahtzee</h1>
+<script language="JavaScript">
+<!--
+
+function roll()
+{
+	var die0 = document.getElementById("d0");
+	var die1 = document.getElementById("d1");
+	var die2 = document.getElementById("d2");
+	var die3 = document.getElementById("d3");
+	var die4 = document.getElementById("d4");
+	
+	var three = document.getElementById("threes")
+	var four = document.getElementById("fours")
+	var yah = document.getElementById("yahtzee");
+	var tots = document.getElementById("total");
+	
+	var r0 = Math.floor(6*Math.random())+1;
+	var r1 = Math.floor(6*Math.random())+1;
+	var r2 = Math.floor(6*Math.random())+1;
+	var r3 = Math.floor(6*Math.random())+1;
+	var r4 = Math.floor(6*Math.random())+1;
+	
+	die0.src = "pix/dice"+r0+".gif";
+	die1.src = "pix/dice"+r1+".gif";
+	die2.src = "pix/dice"+r2+".gif";
+	die3.src = "pix/dice"+r3+".gif";
+	die4.src = "pix/dice"+r4+".gif";
+	
+	die0.setAttribute("class", "");
+	die1.setAttribute("class", "");
+	die2.setAttribute("class", "");
+	die3.setAttribute("class", "");
+	die4.setAttribute("class", "");
+	die0.classList.add(r0);
+	die1.classList.add(r1);
+	die2.classList.add(r2);
+	die3.classList.add(r3);
+	die4.classList.add(r4);
+	
+	var done = document.getElementsByClassName("1").length;
+	var dtwo = document.getElementsByClassName("2").length;
+	var dthree = document.getElementsByClassName("3").length;
+	var dfour = document.getElementsByClassName("4").length;
+	var dfive = document.getElementsByClassName("5").length;
+	var dsix = document.getElementsByClassName("6").length;
+	var tot = r0 + r1 + r2 + r3 + r4;
+	var c1 = done*1;
+	var c2 = dtwo*2;
+	var c3 = dthree*3;
+	var c4 = dfour*4;
+	var c5 = dfive*5;
+	var c6 = dsix*6;
+	var ctot = c1 + c2 + c3 + c4 + c5 + c6;
+	
+	if (done!=3 && dtwo!=3 && dthree!=3 && dfour!=3 && dfive!=3 && dsix!=3){
+		threes.innerHTML = "";}
+		else threes.innerHTML = tot;
+	if (done!=4 && dtwo!=4 && dthree!=4 && dfour!=4 && dfive!=4 && dsix!=4){
+		fours.innerHTML = "";}
+		else fours.innerHTML = tot;
+	if(r0==r1 && r1==r2 && r2==r3 && r3==r4){
+		yah.innerHTML = tot;}
+
+	tots.innerHTML = ctot;
+}
+
+function scr1(){
+	var t = document.getElementById("s1");
+
+	var countone = document.getElementsByClassName("1").length;
+		
+	t.innerHTML = countone;}
+function clr1(){
+	var t = document.getElementById("s1");
+	
+	t.innerHTML = " ";
+}	
+
+function scr2(){
+	var t = document.getElementById("s2");
+
+	var countone = document.getElementsByClassName("2").length;
+		
+	t.innerHTML = countone*2;}
+function clr2(){
+	var t = document.getElementById("s2");
+	
+	t.innerHTML = " ";
+}	
+
+function scr3(){
+	var t = document.getElementById("s3");
+
+	var countone = document.getElementsByClassName("3").length;
+		
+	t.innerHTML = countone*3;}
+function clr3(){
+	var t = document.getElementById("s3");
+	
+	t.innerHTML = " ";
+}	
+
+function scr4(){
+	var t = document.getElementById("s4");
+
+	var countone = document.getElementsByClassName("4").length;
+		
+	t.innerHTML = countone*4;}
+function clr4(){
+	var t = document.getElementById("s4");
+	
+	t.innerHTML = " ";
+}	
+
+function scr5(){
+	var t = document.getElementById("s5");
+
+	var countone = document.getElementsByClassName("5").length;
+		
+	t.innerHTML = countone*5;}
+function clr5(){
+	var t = document.getElementById("s5");
+	
+	t.innerHTML = " ";
+}	
+
+function scr6(){
+	var t = document.getElementById("s6");
+
+	var countone = document.getElementsByClassName("6").length;
+		
+	t.innerHTML = countone*6;}
+function clr6(){
+	var t = document.getElementById("s6");
+	
+	t.innerHTML = " ";
+}
+
+function reset(){
+	var die0 = document.getElementById("d0");
+	var die1 = document.getElementById("d1");
+	var die2 = document.getElementById("d2");
+	var die3 = document.getElementById("d3");
+	var die4 = document.getElementById("d4");
+	
+	die0.src = "pix/dice0.gif";
+	die1.src = "pix/dice0.gif";
+	die2.src = "pix/dice0.gif";
+	die3.src = "pix/dice0.gif";
+	die4.src = "pix/dice0.gif";
+	
+	die0.setAttribute("class", "");
+	die1.setAttribute("class", "");
+	die2.setAttribute("class", "");
+	die3.setAttribute("class", "");
+	die4.setAttribute("class", "");
+	
+	let three = document.getElementById("threes");
+	let four = document.getElementById("fours");
+	let yah = document.getElementById("yahtzee");
+	let tot = document.getElementById("total");
+	
+	three.innerHTML = "";
+	four.innerHTML = "";
+	yah.innerhtml = "";
+	tot.innerHTML = "";
+}
+
+</script>
+
+
+<div class="a">
+<img id="d0" src="pix/dice0.gif">
+<img id="d1" src="pix/dice0.gif">
+<img id="d2" src="pix/dice0.gif">
+<img id="d3" src="pix/dice0.gif">
+<img id="d4" src="pix/dice0.gif">
+</div>
+
+<table class="a">
+<tr> <td class="a">1's</td><td id="s1" class="b"
+onMouseOver="scr1()" onMouseOut="clr1()" onClick="hld1()"> </td>	 
+	 <td class="c" rowspan="5">
+	 
+<button class="a" onClick="roll()">Roll</button> </td> </tr>
+ 
+<tr> <td class="a">2's</td><td id="s2" class="b"
+onMouseOver="scr2()" onMouseOut="clr2()"> </td> </tr>
+
+<tr> <td class="a">3's</td><td id="s3" class="b"
+onMouseOver="scr3()" onMouseOut="clr3()"> </td> </tr>
+
+<tr> <td class="a">4's</td><td id="s4" class="b"
+onMouseOver="scr4()" onMouseOut="clr4()"> </td> </tr>
+
+<tr> <td class="a">5's</td><td id="s5" class="b"
+onMouseOver="scr5()" onMouseOut="clr5()"> </td> </tr>
+
+<tr> <td class="a">6's</td><td id="s6" class="b"
+onMouseOver="scr6()" onMouseOut="clr6()"> </td>
+
+<td class ="c" rowspan="5"> <button class="b" id="new"
+onClick="reset()">New game</button> </td> </tr>
+
+<tr> <td class="a">3 of a kind</td><td id="threes"> </td> </tr>
+<tr> <td class="a">4 of a kind</td><td id="fours"> </td> </tr>
+<tr> <td class="a">Yahtzee</td><td id="yahtzee"> </td> </tr>
+<tr> <td class="a">Total</td><td id="total"> </td> </tr>
+</table>
+
+</body>
+</html>
